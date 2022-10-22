@@ -1,3 +1,4 @@
 {
-  "packages":      { "name" : "termux-main", "distribution" : "stable" }
+  "packages":      { "name" : "termux-main", "distribution" : "stable" },
+  "x11-packages":  { "name" : "termux-x11",  "distribution" : "x11" }
 }
