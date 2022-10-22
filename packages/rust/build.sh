@@ -28,8 +28,8 @@ termux_step_pre_configure() {
 	ln -sf $TERMUX_STANDALONE_TOOLCHAIN/sysroot/usr/lib/$TERMUX_HOST_PLATFORM/libc++_static.a \
 		$RUST_LIBDIR/libc++_shared.a
 
-	# https://github.com/termux/termux-packages/issues/11640
-	# https://github.com/termux/termux-packages/issues/11658
+	# https://github.com.itsaky.androidide/termux-packages/issues/11640
+	# https://github.com.itsaky.androidide/termux-packages/issues/11658
 	# The build system somehow tries to link binaries against a wrong libc,
 	# leading to build failures for arm and runtime errors for others.
 	# The following command is equivalent to
@@ -45,9 +45,9 @@ termux_step_pre_configure() {
 	mv $TERMUX_PREFIX/lib/libz.so $TERMUX_PREFIX/lib/libz.so.tmp
 	mv $TERMUX_PREFIX/lib/liblzma.so.$LZMA_VERSION $TERMUX_PREFIX/lib/liblzma.so.tmp
 
-	# https://github.com/termux/termux-packages/issues/11427
+	# https://github.com.itsaky.androidide/termux-packages/issues/11427
 	# Fresh build conflict: liblzma -> rust
-	# ld: error: /data/data/com.termux/files/usr/lib/liblzma.a(liblzma_la-common.o) is incompatible with elf64-x86-64
+	# ld: error: /data/data/com.itsaky.androidide/files/usr/lib/liblzma.a(liblzma_la-common.o) is incompatible with elf64-x86-64
 	mv $TERMUX_PREFIX/lib/liblzma.a $TERMUX_PREFIX/lib/liblzma.a.tmp || true
 
 	# ld: error: undefined symbol: getloadavg

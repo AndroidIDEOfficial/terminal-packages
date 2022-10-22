@@ -18,21 +18,21 @@ termux_step_make_install() {
 	mkdir -p $GPG_DIR
 
 	# Maintainer-specific keys.
-	install -Dm600 $TERMUX_PKG_BUILDER_DIR/agnostic-apollo.gpg $GPG_DIR
-	install -Dm600 $TERMUX_PKG_BUILDER_DIR/grimler.gpg $GPG_DIR
-	install -Dm600 $TERMUX_PKG_BUILDER_DIR/kcubeterm.gpg $GPG_DIR
-	install -Dm600 $TERMUX_PKG_BUILDER_DIR/landfillbaby.gpg $GPG_DIR
-	install -Dm600 $TERMUX_PKG_BUILDER_DIR/mradityaalok.gpg $GPG_DIR
-	install -Dm600 $TERMUX_PKG_BUILDER_DIR/2096779623.gpg $GPG_DIR
+#	install -Dm600 $TERMUX_PKG_BUILDER_DIR/agnostic-apollo.gpg $GPG_DIR
+#	install -Dm600 $TERMUX_PKG_BUILDER_DIR/grimler.gpg $GPG_DIR
+#	install -Dm600 $TERMUX_PKG_BUILDER_DIR/kcubeterm.gpg $GPG_DIR
+#	install -Dm600 $TERMUX_PKG_BUILDER_DIR/landfillbaby.gpg $GPG_DIR
+#	install -Dm600 $TERMUX_PKG_BUILDER_DIR/mradityaalok.gpg $GPG_DIR
+	install -Dm600 $TERMUX_PKG_BUILDER_DIR/itsaky.gpg $GPG_DIR
 
 	# Key for automatic builds (via CI).
-	install -Dm600 $TERMUX_PKG_BUILDER_DIR/termux-autobuilds.gpg $GPG_DIR
+#	install -Dm600 $TERMUX_PKG_BUILDER_DIR/termux-autobuilds.gpg $GPG_DIR
 
 	# Creation of trusted files
-	if [ "$TERMUX_PACKAGE_FORMAT" = "pacman" ]; then
-		install -Dm600 $TERMUX_PKG_BUILDER_DIR/termux-pacman.gpg $GPG_DIR
-		echo "998DE27318E867EA976BA877389CEED64573DFCA:4:" > $GPG_DIR/termux-pacman-trusted
-	fi
+#	if [ "$TERMUX_PACKAGE_FORMAT" = "pacman" ]; then
+#		install -Dm600 $TERMUX_PKG_BUILDER_DIR/termux-pacman.gpg $GPG_DIR
+#		echo "998DE27318E867EA976BA877389CEED64573DFCA:4:" > $GPG_DIR/termux-pacman-trusted
+#	fi
 }
 
 termux_step_create_debscripts() {
