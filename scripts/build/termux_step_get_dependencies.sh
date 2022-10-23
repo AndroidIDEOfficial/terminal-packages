@@ -70,6 +70,17 @@ termux_step_get_dependencies() {
 				termux_error_exit "Obtaining buildorder failed"
 			fi
 			echo "Building dependency $PKG if necessary..."
+
+			read DEP_ARCH DEP_VERSION DEP_VERSION_PAC <<< $(termux_extract_dep_info $PKG "${PKG_DIR}")
+                        if [ -e "$TERMUX_BUILT_PACKAGES_DIRECTORY/$PKG" ]; then
+                                if [ "$(cat "$TERMUX_BUILT_PACKAGES_DIRECTORY/$PKG")" = "$DEP_VERSION" ]; then
+                                        if [ ! "$TERMUX_QUIET_BUILD" = true ]; then
+                                                echo "Skipping already built dependency $PKG@$DEP_VERSION"
+                                        fi
+                                        continue
+                                fi
+                        fi
+
 			# Built dependencies are put in the default TERMUX_OUTPUT_DIR instead of the specified one
 			TERMUX_BUILD_IGNORE_LOCK=true ./build-package.sh ${TERMUX_FORCE_BUILD+-f} -s --format $TERMUX_PACKAGE_FORMAT "${PKG_DIR}"
 		done<<<$(./scripts/buildorder.py "$TERMUX_PKG_BUILDER_DIR" $TERMUX_PACKAGES_DIRECTORIES || echo "ERROR")

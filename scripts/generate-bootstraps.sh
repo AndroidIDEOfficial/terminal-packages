@@ -16,15 +16,14 @@ BOOTSTRAP_ANDROID10_COMPATIBLE=false
 # By default, bootstrap archives will be built for all architectures
 # supported by Termux application.
 # Override with option '--architectures'.
-TERMUX_ARCHITECTURES=("aarch64" "arm" "i686" "x86_64")
+TERMUX_ARCHITECTURES=("aarch64" "arm")
 
 # The supported termux package managers.
-TERMUX_PACKAGE_MANAGERS=("apt" "pacman")
+TERMUX_PACKAGE_MANAGERS=("apt")
 
 # The repository base urls mapping for package managers.
 declare -A REPO_BASE_URLS=(
-	["apt"]="https://packages-cf.termux.dev/apt/termux-main"
-	["pacman"]="https://s3.amazonaws.com/termux-pacman.us/main"
+	["apt"]="https://androidide.com/packages/apt/termux-main"
 )
 
 # The package manager that will be installed in bootstrap.
@@ -434,11 +433,11 @@ for package_arch in "${TERMUX_ARCHITECTURES[@]}"; do
 	# Core utilities.
 	pull_package bash
 	pull_package bzip2
-	if ! ${BOOTSTRAP_ANDROID10_COMPATIBLE}; then
-		pull_package command-not-found
-	else
-		pull_package proot
-	fi
+#	if ! ${BOOTSTRAP_ANDROID10_COMPATIBLE}; then
+#		pull_package command-not-found
+#	else
+#		pull_package proot
+#	fi
 	pull_package coreutils
 	pull_package curl
 	pull_package dash
@@ -470,6 +469,18 @@ for package_arch in "${TERMUX_ARCHITECTURES[@]}"; do
 	pull_package net-tools
 	pull_package patch
 	pull_package unzip
+	pull_package zstd
+
+	# Needed for basic installation of build tools in AndroidIDE
+	# Already included in bootstrap: tar, curl
+	pull_package wget
+	pull_package jq
+
+	# Necessary packages for AndroidIDE
+	pull_package androidide-tools
+
+	# Error in AndroidIDE if these are not included
+	pull_package brotli
 
 	# Handle additional packages.
 	for add_pkg in "${ADDITIONAL_PACKAGES[@]}"; do

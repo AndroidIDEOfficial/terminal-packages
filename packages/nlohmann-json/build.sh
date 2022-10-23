@@ -8,8 +8,8 @@ TERMUX_PKG_SRCURL=https://github.com/nlohmann/json/archive/v${TERMUX_PKG_VERSION
 TERMUX_PKG_SHA256=d69f9deb6a75e2580465c6c4c5111b89c4dc2fa94e3a85fcd2ffcd9a143d9273
 TERMUX_PKG_AUTO_UPDATE=true
 # Avoid tests, otherwise we run into the same/similar issue as in
-# https://github.com/termux/termux-packages/issues/1149
-# /home/builder/.termux-build/_cache/android-r23b-api-24-v6/bin/clang++ --target=aarch64-none-linux-android --gcc-toolchain=/home/builder/.termux-build/_cache/android-r23b-api-24-v6 --sysroot=/home/builder/.termux-build/_cache/android-r23b-api-24-v6/sysroot  -I/home/builder/.termux-build/nlohmann-json/src/test/thirdparty/doctest -fstack-protector-strong -Oz --target=aarch64-linux-android24  -I/data/data/com.termux/files/usr/include -O3 -DNDEBUG -fPIC -MD -MT test/CMakeFiles/doctest_main.dir/src/unit.cpp.o -MF test/CMakeFiles/doctest_main.dir/src/unit.cpp.o.d -o test/CMakeFiles/doctest_main.dir/src/unit.cpp.o -c /home/builder/.termux-build/nlohmann-json/src/test/src/unit.cpp
+# https://github.com.itsaky.androidide/termux-packages/issues/1149
+# /home/builder/.termux-build/_cache/android-r23b-api-24-v6/bin/clang++ --target=aarch64-none-linux-android --gcc-toolchain=/home/builder/.termux-build/_cache/android-r23b-api-24-v6 --sysroot=/home/builder/.termux-build/_cache/android-r23b-api-24-v6/sysroot  -I/home/builder/.termux-build/nlohmann-json/src/test/thirdparty/doctest -fstack-protector-strong -Oz --target=aarch64-linux-android24  -I/data/data/com.itsaky.androidide/files/usr/include -O3 -DNDEBUG -fPIC -MD -MT test/CMakeFiles/doctest_main.dir/src/unit.cpp.o -MF test/CMakeFiles/doctest_main.dir/src/unit.cpp.o.d -o test/CMakeFiles/doctest_main.dir/src/unit.cpp.o -c /home/builder/.termux-build/nlohmann-json/src/test/src/unit.cpp
 # In file included from /home/builder/.termux-build/nlohmann-json/src/test/src/unit.cpp:31:
 # In file included from /home/builder/.termux-build/nlohmann-json/src/test/thirdparty/doctest/doctest_compatibility.h:6:
 # In file included from /home/builder/.termux-build/nlohmann-json/src/test/thirdparty/doctest/doctest.h:2806:
