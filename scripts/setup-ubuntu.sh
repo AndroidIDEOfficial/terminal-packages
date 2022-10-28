@@ -62,6 +62,7 @@ PACKAGES+=" python3.10"
 PACKAGES+=" python3.11"
 PACKAGES+=" python3-pip"
 PACKAGES+=" python3-setuptools"
+PACKAGES+=" python3.10-venv"
 PACKAGES+=" python3.11-venv"
 
 # Needed by package bc.
@@ -97,6 +98,9 @@ PACKAGES+=" libelf-dev"
 # Needed by package ghostscript.
 PACKAGES+=" libexpat1-dev"
 PACKAGES+=" libjpeg-dev"
+
+# Needed by package gimp3.
+PACKAGES+=" librsvg2-dev"
 
 # Needed by package news-flash-gtk.
 PACKAGES+=" libsqlite3-dev"
