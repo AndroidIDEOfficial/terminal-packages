@@ -3,6 +3,7 @@ TERMUX_PKG_DESCRIPTION="Tensors and Dynamic neural networks in Python"
 TERMUX_PKG_LICENSE="BSD 3-Clause"
 TERMUX_PKG_MAINTAINER="@termux"
 TERMUX_PKG_VERSION=1.12.1
+TERMUX_PKG_REVISION=1
 TERMUX_PKG_SRCURL=https://github.com/pytorch/pytorch.git
 TERMUX_PKG_DEPENDS="python, python-numpy, libopenblas, libprotobuf, libzmq, ffmpeg, opencv"
 TERMUX_PKG_HOSTBUILD=true
@@ -31,7 +32,7 @@ termux_step_pre_configure() {
 		popd
 		. ${_CROSSENV_PREFIX}/bin/activate
 
-		build-pip install -U pyyaml numpy typing_extensions
+		build-pip install -U wheel pyyaml numpy typing_extensions
 	fi
 	
 	pip install -U typing_extensions
@@ -51,7 +52,7 @@ termux_step_pre_configure() {
 	-DCMAKE_BUILD_TYPE=Release
 	-DCMAKE_INSTALL_PREFIX=${TERMUX_PKG_SRCDIR}/torch
 	-DCMAKE_PREFIX_PATH=${TERMUX_PREFIX}/lib/python${_PYTHON_VERSION}/site-packages
-	-DNUMPY_INCLUDE_DIR=$( echo ${TERMUX_PREFIX}/lib/python${_PYTHON_VERSION}/site-packages/*/numpy/core/include )
+	-DNUMPY_INCLUDE_DIR=${TERMUX_PREFIX}/lib/python${_PYTHON_VERSION}/site-packages/numpy/core/include
 	-DPYTHON_EXECUTABLE=$(command -v python3)
 	-DPYTHON_INCLUDE_DIR=${TERMUX_PREFIX}/include/python${_PYTHON_VERSION}
 	-DPYTHON_LIBRARY=${TERMUX_PREFIX}/lib//libpython${_PYTHON_VERSION}.so

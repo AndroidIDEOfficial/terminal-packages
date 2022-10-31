@@ -3,6 +3,7 @@ TERMUX_PKG_DESCRIPTION="Datasets, Transforms and Models specific to Computer Vis
 TERMUX_PKG_LICENSE="BSD 3-Clause"
 TERMUX_PKG_MAINTAINER="@termux"
 TERMUX_PKG_VERSION=0.13.1
+TERMUX_PKG_REVISION=1
 TERMUX_PKG_SRCURL=https://github.com/pytorch/vision.git
 TERMUX_PKG_DEPENDS="python, python-numpy, python-pillow, python-torch, libjpeg-turbo, libpng, ffmpeg, zlib"
 
@@ -18,7 +19,7 @@ termux_step_pre_configure() {
 	popd
 	. ${_CROSSENV_PREFIX}/bin/activate
 
-	build-pip install -U setuptools
+	build-pip install -U wheel setuptools
 
 	CFLAGS+=" -I${TERMUX_PREFIX}/lib/python${_PYTHON_VERSION}/site-packages/torch/include"
 	CFLAGS+=" -I${TERMUX_PREFIX}/lib/python${_PYTHON_VERSION}/site-packages/torch/include/torch/csrc/api/include"

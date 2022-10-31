@@ -3,7 +3,7 @@ TERMUX_PKG_DESCRIPTION="Full-text search for your desktop"
 TERMUX_PKG_LICENSE="GPL-2.0"
 TERMUX_PKG_MAINTAINER="@termux"
 TERMUX_PKG_VERSION=1.33.1
-TERMUX_PKG_REVISION=2
+TERMUX_PKG_REVISION=3
 TERMUX_PKG_SRCURL=https://www.lesbonscomptes.com/recoll/recoll-${TERMUX_PKG_VERSION}.tar.gz
 TERMUX_PKG_SHA256=025dec0b9745e1ddacd86ee5478f9c52b2da2e5c307f831aaa5b2c7f9d7e8db9
 TERMUX_PKG_DEPENDS="aspell, libiconv, libxapian, libxml2, libxslt, zlib"
@@ -23,6 +23,7 @@ termux_step_pre_configure() {
 		${_CROSSENV_PREFIX}
 	popd
 	. ${_CROSSENV_PREFIX}/bin/activate
+	build-pip install wheel
 
 	echo "Applying python-recoll-setup.py.in.diff"
 	sed "s|@PYTHON_VERSION@|${_PYTHON_VERSION}|g" \
