@@ -1,16 +1,17 @@
 TERMUX_PKG_HOMEPAGE=https://www.xfce.org/
 TERMUX_PKG_DESCRIPTION="Commonly used XFCE widgets among XFCE applications"
-TERMUX_PKG_LICENSE="GPL-2.0"
+TERMUX_PKG_LICENSE="LGPL-2.0"
 TERMUX_PKG_MAINTAINER="@termux"
-TERMUX_PKG_VERSION=4.17.2
+_MAJOR_VERSION=4.17
+TERMUX_PKG_VERSION=${_MAJOR_VERSION}.8
 TERMUX_PKG_REVISION=1
-TERMUX_PKG_SRCURL=https://archive.xfce.org/src/xfce/libxfce4ui/4.17/libxfce4ui-${TERMUX_PKG_VERSION}.tar.bz2
-TERMUX_PKG_SHA256=c3ba2056dd4d515db5a14b1a589b7afc88e4e2662e27fe93e2054a0e9d09df24
-TERMUX_PKG_DEPENDS="gtk2, gtk3, hicolor-icon-theme, libsm, libxfce4util, startup-notification, xfconf, glib"
+TERMUX_PKG_SRCURL=https://archive.xfce.org/src/xfce/libxfce4ui/${_MAJOR_VERSION}/libxfce4ui-${TERMUX_PKG_VERSION}.tar.bz2
+TERMUX_PKG_SHA256=a96dabc333a89f4bc2faa4a02fd40c8e8070fd17d65e03c0ec77c7d2cc1284b0
+TERMUX_PKG_DEPENDS="atk, gdk-pixbuf, glib, gtk3, harfbuzz, libcairo, libice, libsm, libx11, libxfce4util, pango, startup-notification, xfconf"
 TERMUX_PKG_BUILD_DEPENDS="g-ir-scanner"
+TERMUX_PKG_RECOMMENDS="hicolor-icon-theme"
 TERMUX_PKG_DISABLE_GIR=false
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
---enable-gtk3
 --with-vendor-info=Termux
 --enable-introspection=yes
 --enable-vala=no
