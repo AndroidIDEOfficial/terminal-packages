@@ -15,5 +15,5 @@ for pck in $(<packages.txt); do
     echo "Skipping $pck as it is already built"
     continue
   fi
-  ./build-package.sh -a $arch -o output $pck
+  ./build-package.sh -I -a $arch -o output $pck
 done
