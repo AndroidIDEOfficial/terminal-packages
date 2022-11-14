@@ -1,6 +1,5 @@
-diff -uNr tigervnc-1.9.0/common/os/Thread.cxx tigervnc-1.9.0.mod/common/os/Thread.cxx
---- tigervnc-1.9.0/common/os/Thread.cxx	2018-07-16 17:08:55.000000000 +0300
-+++ tigervnc-1.9.0.mod/common/os/Thread.cxx	2018-09-12 11:14:21.776323226 +0300
+--- a/common/os/Thread.cxx
++++ b/common/os/Thread.cxx
 @@ -29,6 +29,14 @@
  #include <os/Mutex.h>
  #include <os/Thread.h>
