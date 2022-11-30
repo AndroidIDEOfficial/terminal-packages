@@ -2,12 +2,12 @@ TERMUX_PKG_HOMEPAGE=https://numpy.org/
 TERMUX_PKG_DESCRIPTION="The fundamental package for scientific computing with Python"
 TERMUX_PKG_LICENSE="BSD 3-Clause"
 TERMUX_PKG_MAINTAINER="@termux"
-TERMUX_PKG_VERSION="1.23.4"
-TERMUX_PKG_REVISION=2
+TERMUX_PKG_VERSION="1.23.5"
 TERMUX_PKG_SRCURL=https://github.com/numpy/numpy.git
 TERMUX_PKG_DEPENDS="libc++, libopenblas, python"
 TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_AUTO_UPDATE=true
+TERMUX_PKG_UPDATE_TAG_TYPE="latest-release-tag"
 
 TERMUX_PKG_RM_AFTER_INSTALL="
 bin/
